@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: gemini-chat
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn app:app"
+    autoDeploy: true
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false   # set this in Render Dashboard

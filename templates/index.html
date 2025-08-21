@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini Chat</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="chat-container">
+    <h2>💬 Gemini Chat</h2>
+
+    <div class="chat-box">
+      {% for m in history %}
+        <div class="msg {{ 'user' if m.role == 'user' else 'model' }}">
+          <p>{{ m.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <form method="POST" class="chat-input">
+      <input type="text" name="message" placeholder="Type your message..." required>
+      <button type="submit">Send</button>
+    </form>
+
+    <a href="{{ url_for('reset') }}">Reset Chat</a>
+  </div>
+</body>
+</html>
