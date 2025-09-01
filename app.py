@@ -4,7 +4,7 @@ import google.generativeai as genai
 app = Flask(__name__)
 
 # Configure Gemini API
-genai.configure(api_key="GEMINI_KEY")
+genai.configure(api_key="GOOGLE_API_KEY")
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 # Store chat history in a global list (reset if app restarts)
