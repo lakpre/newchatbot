@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, redirect, url_for
 import google.generativeai as genai
+import os
 
 app = Flask(__name__)
 
 # Configure Gemini API
-genai.configure(api_key="GOOGLE_API_KEY")
+genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 # Store chat history in a global list (reset if app restarts)
